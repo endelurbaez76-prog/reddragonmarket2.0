@@ -1,0 +1,28 @@
+<!-- registro.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - RedDragonMarket</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="register-body">
+<main class="auth-container">
+    <div class="auth-card">
+        <h2>Crear cuenta</h2>
+
+        <form action="/registro" method="POST">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn btn-register">Registrarse</button>
+        </form>
+
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+
+        <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a></p>
+    </div>
+</main>
+</body>
+</html>

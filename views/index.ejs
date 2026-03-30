@@ -1,0 +1,40 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>RedDragonMarket - Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>RedDragonMarket</h1>
+        <a href="/logout" class="btn btn-logout">Cerrar sesión</a>
+    </header>
+
+    <main class="container">
+        <h2>Productos</h2>
+        <% if (productos.length === 0) { %>
+            <p>No hay productos registrados.</p>
+        <% } else { %>
+            <div class="cards">
+                <% productos.forEach(p => { %>
+                    <div class="card">
+                        <h3><%= p.nombre %></h3>
+                        <p>Precio: $<%= p.precio %></p>
+                        <p>Cantidad: <%= p.cantidad %></p>
+                        <div class="buttons">
+                            <a href="/producto/editar/<%= p.id %>" class="btn btn-edit">Editar</a>
+                            <a href="/producto/eliminar/<%= p.id %>" class="btn btn-delete" onclick="return confirm('¿Seguro que quieres eliminar este producto?')">Eliminar</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <a href="/producto/nuevo" class="btn btn-add">+ Agregar Producto</a>
+    </main>
+</body>
+</html>
+
+<!-- PR TEST -->

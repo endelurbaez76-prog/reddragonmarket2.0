@@ -1,0 +1,31 @@
+<!-- actualizar.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Producto</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="form-container">
+        <h1>Actualizar Producto</h1>
+
+        <form action="/producto/editar/<%= producto.id %>" method="POST">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" value="<%= producto.nombre %>" required>
+
+            <label>Precio:</label>
+            <input type="number" name="precio" step="0.01" value="<%= producto.precio %>" required>
+
+            <label>Cantidad:</label>
+            <input type="number" name="cantidad" value="<%= producto.cantidad %>" required>
+
+            <button type="submit" class="btn btn-edit">Actualizar Producto</button>
+        </form>
+
+        <a href="/" class="btn btn-back">Volver al Dashboard</a>
+    </main>
+</body>
+</html>
+
+
